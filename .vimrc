@@ -1,4 +1,4 @@
-for f in glob('$HOME/.config/nvim/.vim/init/*.vim', 0, 1)
+for f in glob('$HOME/.vim/init/*.vim', 0, 1)
   execute 'source' f
 endfor
 
