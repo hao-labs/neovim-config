@@ -9,11 +9,12 @@
 ## Todo
 - Optimized to lua to improve performance approximately around (40 - 60 ms)
 
-## Usage
+## Installation
 ```
 mkdir -p ~/.config/
 cd ~/.config
 git clone git@github.com:hao-labs/neovim-config.git nvim
+cd nvim
 git checkout nvim-0.4.4
 sh install
 ```
