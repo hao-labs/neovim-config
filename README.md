@@ -3,7 +3,7 @@
 
 ## Benchmark
 - 294.877  000.005: --- NVIM STARTED ---
-- It takes 294 ms for startup time
+- It takes 294 ms for startup time. Fresh install neovim take 18-21 ms
 - sometimes feel delay a little bit
 
 ## Todo
