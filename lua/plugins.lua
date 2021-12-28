@@ -5,9 +5,28 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function(use)
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
-    -- My plugins here
+    -- [packer.nvim] Packer can manage itself
+    use {"wbthomason/packer.nvim", event = "VimEnter"}
+
+    -- [nvim-web-devicons]
+    use {'kyazdani42/nvim-web-devicons', event = "BufRead"}
+
+    -- [nvim-tree.lua] File Explorer
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = {
+            'kyazdani42/nvim-web-devicons', -- optional, for file icon
+        },
+        config = function() require'nvim-tree'.setup {} end
+    }
+
+    -- telescope: extensible fuzzy file finder--
+    -- use {
+    --     'nvim-telescope/telescope.nvim',
+    --     requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'},
+    --     config = function() require("config.telescope_config") end,
+    --     module = 'telescope'
+    -- }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
