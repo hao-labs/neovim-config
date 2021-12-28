@@ -1,5 +1,5 @@
-# Existing configuration for neovim from 0.4.4 version
-- this config ready to use
+# Existing configuration for neovim 0.4.4 version
+- config ready to use
 
 ## Benchmark
 - 294.877  000.005: --- NVIM STARTED ---
