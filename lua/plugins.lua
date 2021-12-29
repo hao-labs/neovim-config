@@ -10,9 +10,23 @@ if fn.empty(fn.glob(install_path)) > 0 then
       'https://github.com/wbthomason/packer.nvim', 
       install_path
   })
+  vim.cmd [[packadd packer.nvim]]
 end
 
-return require('packer').startup(function(use)
+-- Use a protected call so we don't error out on first use
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+  return
+end
+
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
+
+return packer.startup(function(use)
     -- [packer.nvim] Packer can manage itself
     use {"wbthomason/packer.nvim", event = "VimEnter"}
 
@@ -40,8 +54,7 @@ return require('packer').startup(function(use)
         requires = {
             'nvim-lua/popup.nvim', 
             'nvim-lua/plenary.nvim'
-        },
-        module = 'telescope'
+        }
     }
 
     -- Automatically set up your configuration after cloning packer.nvim
