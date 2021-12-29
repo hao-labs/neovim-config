@@ -24,3 +24,4 @@ require('base.file')
 
 -- key map config
 require('key-map.common')
+require('key-map.motion')
