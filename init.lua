@@ -16,6 +16,7 @@ require('plugins')
 
 -- plugin config
 require('appearance.theme')
+require('fuzzy.telescope')
 
 -- base config
 require('base.common')
