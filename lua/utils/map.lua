@@ -5,7 +5,7 @@
 -- map {'n', '<Leader>e', '%', noremap = false}
 return function(key)
     -- get the extra options
-    local opts = {noremap = true}
+    local opts = {noremap = true, silent = true}
 
     for i, v in pairs(key) do
         if type(i) == 'string' then opts[i] = v end
