@@ -15,7 +15,7 @@ License: MIT License
 require('plugins')
 
 -- plugin config
-require('appearance.nightfox')
+require('appearance.theme')
 
 -- base config
 require('base.common')
