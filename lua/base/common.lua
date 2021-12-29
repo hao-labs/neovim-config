@@ -19,3 +19,13 @@ opt.showmatch = true
 -- show indentation
 opt.list = true
 opt.listchars = "tab:-->,trail:·"
+-- Minimal number of screen lines to keep above and below the cursor.
+opt.scrolloff = 5
+-- Limit timeout waiting time to reduce the delay of waiting key code sequence
+opt.timeoutlen = 200 
+opt.ttimeoutlen = 0
+-- no waiting for key combination
+opt.timeout = false
+
+-- remember where to recover cursor
+opt.viewoptions = 'cursor,folds,slash,unix'
