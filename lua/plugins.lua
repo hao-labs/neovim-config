@@ -1,30 +1,4 @@
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({
-      'git', 
-      'clone', 
-      '--depth', 
-      '1', 
-      'https://github.com/wbthomason/packer.nvim', 
-      install_path
-  })
-  vim.cmd [[packadd packer.nvim]]
-end
-
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
-end
-
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
+local packer = require('utils.packer')
 
 return packer.startup(function(use)
     -- [packer.nvim] Packer can manage itself
@@ -55,6 +29,14 @@ return packer.startup(function(use)
             'nvim-lua/popup.nvim', 
             'nvim-lua/plenary.nvim'
         }
+    }
+
+    use {
+        'lewis6991/gitsigns.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim'
+        },
+        config = function() require ('gitsigns').setup() end
     }
 
     -- Automatically set up your configuration after cloning packer.nvim
