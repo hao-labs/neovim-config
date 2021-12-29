@@ -1,5 +1,8 @@
 local telescope = require('telescope')
 
+-------------------------------------------------------------------
+-- Telescope custom config
+-------------------------------------------------------------------
 telescope.setup{
     extensions = {
         fzf = {
