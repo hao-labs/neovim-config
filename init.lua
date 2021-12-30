@@ -17,6 +17,8 @@ require('plugins')
 -- plugin config
 require('appearance.theme')
 require('fuzzy.telescope')
+require('parser.nvim-treesitter')
+require('lsp.lsp')
 
 -- base config
 require('base.common')
