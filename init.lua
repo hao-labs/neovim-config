@@ -10,22 +10,23 @@ Author: Cahyo Bagus L
 Source: https://github.com/hao-labs/neovim-config
 License: MIT License
 --]]
+local loader = require('utils.loader')
 
 -- load packer plugins
-require('plugins')
-
--- plugin config
-require('appearance.theme')
-require('fuzzy.telescope')
-require('parser.nvim-treesitter')
-require('lsp.lsp')
+loader('plugins')
 
 -- base config
-require('base.common')
-require('base.tabs')
-require('base.file')
+loader('base.common')
+loader('base.tabs')
+loader('base.file')
+
+-- plugin config
+loader('appearance.theme')
+loader('fuzzy.telescope')
+loader('parser.nvim-treesitter')
+loader('lsp.lsp')
 
 -- key map config
-require('key-map.common')
-require('key-map.motion')
-require('key-map.fuzzy')
+loader('key-map.common')
+loader('key-map.motion')
+loader('key-map.fuzzy')
