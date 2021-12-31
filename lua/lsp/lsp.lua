@@ -10,7 +10,6 @@ local function install_lsp(lsp)
 
     if ok then
         if not server:is_installed() then
-            print("Installing " .. lsp)
             server:install()
         end
     end
