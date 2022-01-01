@@ -1,4 +1,10 @@
 local packer = require('utils.packer')
+local file_types = {    -- only running on specified file types
+    'lua',
+    'javascript',
+    'html',
+    'json',
+}
 
 return packer.startup(function(use)
     ----------------------------------------------------------------------------------------------
@@ -9,17 +15,36 @@ return packer.startup(function(use)
     ----------------------------------------------------------------------------------------------
     -- Appearance/User Interface
     ----------------------------------------------------------------------------------------------
-    use {'EdenEast/nightfox.nvim'}                             -- Theme 
+    use {
+        "NvChad/nvim-base16.lua",                              -- Theme default (onedark)
+        after = "packer.nvim",
+        config = function()
+            require('appearance.theme')
+        end
+    }
     use {
         'kyazdani42/nvim-web-devicons',                        -- File Type Icons
         event = "BufRead"
     }
-    use {'romgrk/barbar.nvim', event = "BufRead"}              -- Tab Management
     use {
-        'kyazdani42/nvim-tree.lua',                            -- File Explorer 
-        config = function() require'nvim-tree'.setup {} end    -- Git File Indicator
+        'nvim-lualine/lualine.nvim',                           -- Status Line
+        requires = {
+            'kyazdani42/nvim-web-devicons', 
+        },
     }
-
+    use {
+        'romgrk/barbar.nvim',                                  -- Tab Management
+        after = 'nvim-web-devicons',
+        requires = {'kyazdani42/nvim-web-devicons'}
+    }
+    use {
+        'kyazdani42/nvim-tree.lua',                            -- File Explorer and Picker
+        config = function() require'nvim-tree'.setup {} end,   -- Git File Indicator
+        cmd = {
+            "NvimTreeRefresh",
+            "NvimTreeToggle"
+        }
+    }
     use {
         'nvim-telescope/telescope.nvim',                       -- Fuzzy Search for file, git, help
         requires = {                                           -- extensible to other fuzzy process
@@ -40,9 +65,10 @@ return packer.startup(function(use)
         requires = {                                           -- Hunk Integration (jump, add to stage, dll)
             'nvim-lua/plenary.nvim'                            -- Git Blame and preview
         },
-        config = function() 
-            require ('gitsigns').setup() 
-        end
+        event = "BufRead",
+        -- config = function() 
+        --     require ('gitsigns').setup() 
+        -- end
     }
 
     ----------------------------------------------------------------------------------------------
@@ -55,7 +81,11 @@ return packer.startup(function(use)
     ----------------------------------------------------------------------------------------------
     use {
         'nvim-treesitter/nvim-treesitter',                     -- Language Parser, Indentation
-        run = ':TSUpdate'                                      -- Folding, Hightlighting Syntax
+        run = ':TSUpdate',                                     -- Folding, Hightlighting Syntax
+        ft = file_types,
+        config = function()
+            require('parser.nvim-treesitter')
+        end
     }
 
     ----------------------------------------------------------------------------------------------
@@ -63,12 +93,24 @@ return packer.startup(function(use)
     ----------------------------------------------------------------------------------------------
     use {
         'neovim/nvim-lspconfig',                               -- define protocol between server and neovim
+        ft = file_types
+    }
+
+    use {
         'williamboman/nvim-lsp-installer',                     -- to make easier to install LSP
+    }
+    
+    ----------------------------------------------------------------------------------------------
+    -- Performance
+    ----------------------------------------------------------------------------------------------
+    use {
+        "nathom/filetype.nvim",
     }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
-    if packer_bootstrap then
-        require ('packer').sync()
+    if packer.first_install then
+        vim.cmd 'hi NormalFloat guibg=#1e222a'
+        vim.cmd 'PackerSync'
     end
 end)
