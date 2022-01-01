@@ -9,6 +9,7 @@ opt.clipboard = 'unnamedplus' -- copy/paste to system clipboard
 opt.swapfile = false          -- don't use swapfile/temp file
 opt.visualbell = true         -- turn on visual bell
 opt.showmatch = true          -- show matching bracket after last closing
+opt.termguicolors = true
 
 -----------------------------------------------------
 -- Performance

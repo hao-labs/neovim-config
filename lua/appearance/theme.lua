@@ -1,8 +1,6 @@
-local nightfox = require('nightfox')
-
-nightfox.setup({
-    fox = "duskfox" -- change the colorscheme to use nordfox
-})
-
--- Load the configuration set above and apply the colorscheme
-nightfox.load()
+local base16 = require('base16')
+-- set default theme to onedark
+base16(
+    base16.themes('onedark'), 
+    true
+)
