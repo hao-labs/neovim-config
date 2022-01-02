@@ -19,39 +19,53 @@ return packer.startup(function(use)
         "NvChad/nvim-base16.lua",                              -- Theme default (onedark)
         after = "packer.nvim",
         config = function()
-            require('appearance.theme')
+            require('theme')
         end
     }
+
     use {
         'kyazdani42/nvim-web-devicons',                        -- File Type Icons
-        event = "BufRead"
+        event = {
+            'BufRead',
+            'WinEnter',
+        }
     }
+
     use {
         'nvim-lualine/lualine.nvim',                           -- Status Line
+        after = 'nvim-web-devicons',
+        event = 'BufRead',
         requires = {
             'kyazdani42/nvim-web-devicons', 
         },
     }
+
     use {
         'romgrk/barbar.nvim',                                  -- Tab Management
         after = 'nvim-web-devicons',
+        event = 'BufRead',
         requires = {'kyazdani42/nvim-web-devicons'}
     }
+
     use {
         'kyazdani42/nvim-tree.lua',                            -- File Explorer and Picker
-        config = function() require'nvim-tree'.setup {} end,   -- Git File Indicator
+        config = function()                                    -- Git File Indicator
+            require('plugins.configs.nvim-tree')
+        end,   -- Git File Indicator
         cmd = {
             "NvimTreeRefresh",
             "NvimTreeToggle"
         }
     }
+
     use {
         'nvim-telescope/telescope.nvim',                       -- Fuzzy Search for file, git, help
         requires = {                                           -- extensible to other fuzzy process
             'nvim-lua/popup.nvim', 
             'nvim-lua/plenary.nvim'
-        }
+        },
     }
+
     use {
         'nvim-telescope/telescope-fzf-native.nvim',            -- Additional plugins for telescope
         run = 'make'                                           -- with native fzf
@@ -65,10 +79,13 @@ return packer.startup(function(use)
         requires = {                                           -- Hunk Integration (jump, add to stage, dll)
             'nvim-lua/plenary.nvim'                            -- Git Blame and preview
         },
-        event = "BufRead",
-        -- config = function() 
-        --     require ('gitsigns').setup() 
-        -- end
+        event = {
+            "BufRead",
+            "BufWritePost"
+        },
+        config = function() 
+            require ('gitsigns').setup() 
+        end
     }
 
     ----------------------------------------------------------------------------------------------
@@ -99,12 +116,12 @@ return packer.startup(function(use)
     use {
         'williamboman/nvim-lsp-installer',                     -- to make easier to install LSP
     }
-    
+
     ----------------------------------------------------------------------------------------------
     -- Performance
     ----------------------------------------------------------------------------------------------
     use {
-        "nathom/filetype.nvim",
+        "nathom/filetype.nvim",                                -- Improve loading filetype performance
     }
 
     -- Automatically set up your configuration after cloning packer.nvim
