@@ -50,14 +50,13 @@ packer.init {
   log = { level = 'debug' },
   profile = {
     enable = true,
-    threshold = 1, -- integer in milliseconds, plugins which load faster than this won't be shown in profile output
   }
 }
 
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+    autocmd BufWritePost plugins/init.lua source <afile> | PackerCompile
   augroup end
 ]])
 
