@@ -1,4 +1,3 @@
-local loader = require('utils.loader')
 local enable_git = 1
 local g = vim.g
 local ui = {
@@ -48,7 +47,7 @@ g.nvim_tree_icons = {
    },
 }
 
-return loader.load('nvim-tree').setup {
+return require('nvim-tree').setup {
     filters = {
         dotfiles = false,
     },
