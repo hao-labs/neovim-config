@@ -42,5 +42,5 @@ local modules = {
 }
 
 for key, module_name in ipairs(modules) do
-    loader.load(module_name)
+    loader(module_name)
 end
