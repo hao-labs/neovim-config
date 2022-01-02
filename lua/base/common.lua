@@ -1,5 +1,4 @@
 local opt = vim.opt
-local api = vim.api
 
 -----------------------------------------------------
 -- General
@@ -10,6 +9,7 @@ opt.swapfile = false          -- don't use swapfile/temp file
 opt.visualbell = true         -- turn on visual bell
 opt.showmatch = true          -- show matching bracket after last closing
 opt.termguicolors = true
+vim.g.mapleader = ","
 
 -----------------------------------------------------
 -- Performance
