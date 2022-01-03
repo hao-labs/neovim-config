@@ -18,8 +18,8 @@ map {'n', '<C-l>', '<C-w>l'}                   -- ( ctrl+l ) Jump Right
 -- Move to previous/next
 map {'n', ']]', ':BufferNext<CR>'}             -- ( ]] ) Jump next tab
 map {'n', '[[', ':BufferPrevious<CR>'}         -- ( [[ ) Jump previous tab
-map {'n', '{{', ':BufferMoveNext<CR>'}         -- ( }} ) Move tab position to right
-map {'n', '}}', ':BufferMovePrevious<CR>'}     -- ( {{ ) Move tab position to left
+map {'n', '}}', ':BufferMoveNext<CR>'}         -- ( }} ) Move tab position to right
+map {'n', '{{', ':BufferMovePrevious<CR>'}     -- ( {{ ) Move tab position to left
 
 -- Goto buffer in position...
 map {'n', '<A-1>', ':BufferGoto 1<CR>'}        -- ( Alt+1 ) Jump to tab position 1
@@ -34,5 +34,4 @@ map {'n', '<A-9>', ':BufferGoto 9<CR>'}        -- ( Alt+9 ) Jump to tab position
 map {'n', '<A-0>', ':BufferLast<CR>'}          -- ( Alt+0 ) Jump to Last tab
 
 -- Close buffer
-map {'n', '<A-c>', ':BufferClose<CR>'}         -- ( Alt+c ) Close Tab
-map {'n', '<C-p>', ':BufferPick<CR>'}
+map {'n', '<Ctrl-Shift-w>', ':BufferClose<CR>'}         -- ( Alt+c ) Close Tab
