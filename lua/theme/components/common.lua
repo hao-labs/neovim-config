@@ -5,7 +5,7 @@ local fg = utils.fg
 
 M.apply = function(colors)
     -- Disable cusror line
-    vim.cmd "hi clear CursorLine"
+    -- vim.cmd "hi clear CursorLine"
 
     -- Line number
     fg("CursorLineNR", colors.white)
