@@ -27,7 +27,9 @@ opt.timeout = false           -- no waiting for key combination
 -----------------------------------------------------
 opt.number = true             -- show line number
 opt.relativenumber = true     -- show relative number
-
+opt.cursorline = true         -- show cursorline
+opt.ignorecase = true         -- ignore case when searching and only on searching
+opt.smartcase = true
 
 -- A List is an ordered sequence of items.
 opt.list = true               -- show indentation
