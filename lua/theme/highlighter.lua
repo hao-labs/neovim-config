@@ -2,7 +2,9 @@ local M = {
     component = {
         path = 'theme.components.',
         lists = {
+            'common',
             'floating-window',
+            'pop-up',
             'telescope',
             'comment',
             'gitsigns',
