@@ -120,12 +120,15 @@ return packer.startup(function(use)
     -- Language Server Protocol (LSP)
     ----------------------------------------------------------------------------------------------
     use {
-        'neovim/nvim-lspconfig',                               -- define protocol between server and neovim
-        ft = file_types
+        'williamboman/nvim-lsp-installer',                     -- to make easier to install lsP
+        ft = file_types,
+        config = function()
+            require('plugins.configs.lsp-installer')
+        end
     }
 
     use {
-        'williamboman/nvim-lsp-installer',                     -- to make easier to install LSP
+        'neovim/nvim-lspconfig',                               -- define protocol between server and neovim
     }
 
     ----------------------------------------------------------------------------------------------
