@@ -140,6 +140,90 @@ return packer.startup(function(use)
     }
 
     ----------------------------------------------------------------------------------------------
+    -- Auto Completion
+    ----------------------------------------------------------------------------------------------
+    use {
+        'rafamadriz/friendly-snippets',
+        event = "InsertEnter"
+    }
+
+    use {
+        "L3MON4D3/LuaSnip",
+        wants = "friendly-snippets",
+        after = "nvim-cmp",
+        config = function()
+            require ('plugins.configs.luasnip')
+        end
+    }
+
+    use {
+        'hrsh7th/nvim-cmp',
+        after = "friendly-snippets",
+        config = function()
+            require("plugins.configs.cmp")
+        end,
+        requires = {
+            'onsails/lspkind-nvim'
+        }
+    }
+
+    use {
+        "saadparwaiz1/cmp_luasnip",
+        after = "LuaSnip",
+    }
+
+    use {
+        "hrsh7th/cmp-nvim-lua",
+        after = "cmp_luasnip",
+    }
+
+    use {
+        'hrsh7th/cmp-path',
+        after = {
+            'nvim-cmp'
+        }
+    }
+
+    use {
+        'hrsh7th/cmp-nvim-lsp',
+        after = {
+            'nvim-cmp'
+        }
+    }
+
+    use {
+        'hrsh7th/cmp-buffer',
+        after = {
+            'nvim-cmp'
+        }
+    }
+
+    use {
+        'glepnir/lspsaga.nvim'
+    }
+
+    -- use {
+    --     'hrsh7th/cmp-vsnip',
+    --     after = {
+    --         'nvim-cmp'
+    --     }
+    -- }
+
+    -- use {
+    --     'hrsh7th/vim-vsnip',
+    --     after = {
+    --         'nvim-cmp'
+    --     }
+    -- }
+
+    use {
+        "lukas-reineke/cmp-rg",
+        after = {
+            'nvim-cmp'
+        }
+    }
+
+    ----------------------------------------------------------------------------------------------
     -- Performance
     ----------------------------------------------------------------------------------------------
     use {
