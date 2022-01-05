@@ -71,6 +71,14 @@ return packer.startup(function(use)
         run = 'make'                                           -- with native fzf
     }
 
+    use {
+        'lukas-reineke/indent-blankline.nvim',
+        config = function()
+            require('plugins.configs.indent-blankline')
+        end,
+        event = 'BufRead'
+    }
+
     ----------------------------------------------------------------------------------------------
     -- Git
     ----------------------------------------------------------------------------------------------
