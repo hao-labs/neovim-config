@@ -1,62 +1,68 @@
 local utils = require('theme.utils')
 local M = {}
+local fg = utils.fg
 local bg = utils.bg
 local fg_bg = utils.fg_bg
 
 M.apply = function(colors)
-    -- local fg, bg, fg_bg = method
-
     -- Telescope
+
     fg_bg(
-        "TelescopeBorder", 
-        colors.darker_black, 
-        colors.darker_black
+        "TelescopePromptBorder",
+        colors.bg,
+        colors.bg
     )
 
     fg_bg(
-        "TelescopePromptBorder", 
-        colors.black2, 
-        colors.black2
+        "TelescopePreviewBorder",
+        '#16161e',
+        '#16161e'
     )
 
     fg_bg(
-        "TelescopePromptNormal", 
-        colors.white, 
-        colors.black2
+        "TelescopeResultsBorder",
+        '#16161e',
+        '#16161e'
     )
 
     fg_bg(
-        "TelescopePromptPrefix", 
-        colors.red, 
-        colors.black2
+        "TelescopePromptNormal",
+        colors.fg,
+        colors.bg
+    )
+
+    fg_bg(
+        "TelescopePromptPrefix",
+        colors.red,
+        colors.bg
     )
 
     bg(
-        "TelescopeNormal", 
-        colors.darker_black
+        "TelescopeNormal",
+        colors.bg_dark
     )
 
     fg_bg(
-        "TelescopePreviewTitle", 
-        colors.black, 
+        "TelescopePreviewTitle",
+        colors.black,
         colors.green
     )
 
     fg_bg(
-        "TelescopePromptTitle", 
-        colors.black, 
+        "TelescopePromptTitle",
+        colors.terminal_black,
         colors.red
     )
 
     fg_bg(
-        "TelescopeResultsTitle", 
-        colors.darker_black, 
-        colors.darker_black
+        "TelescopeResultsTitle",
+        '#16161e',
+        '#16161e'
     )
 
     bg(
-        "TelescopeSelection", 
-        colors.black2
+        "TelescopeSelection",
+        colors.bg
     )
 end
 
