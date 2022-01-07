@@ -63,9 +63,12 @@ return packer.startup(function(use)
     use {
         'nvim-telescope/telescope.nvim',                       -- Fuzzy Search for file, git, help
         requires = {                                           -- extensible to other fuzzy process
-            'nvim-lua/popup.nvim', 
+            'nvim-lua/popup.nvim',
             'nvim-lua/plenary.nvim'
         },
+        config = function()
+            require('plugins.configs.telescope')
+        end
     }
 
     use {
@@ -115,7 +118,7 @@ return packer.startup(function(use)
     use {'ggandor/lightspeed.nvim'}
 
     ----------------------------------------------------------------------------------------------
-    -- Languange Parser 
+    -- Languange Parser
     ----------------------------------------------------------------------------------------------
     use {
         'nvim-treesitter/nvim-treesitter',                     -- Language Parser, Indentation
