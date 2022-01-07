@@ -17,7 +17,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
     },
 }
 
-local on_attach = require('key-map.lsp')
+local on_attach = require('shortcuts.lsp')
 
 local function getOptions(server)
     local opts = {
