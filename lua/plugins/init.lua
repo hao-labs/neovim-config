@@ -96,20 +96,37 @@ return packer.startup(function(use)
             "BufRead",
             "BufWritePost"
         },
-        config = function() 
-            require ('gitsigns').setup() 
+        config = function()
+            require ('gitsigns').setup()
         end
+    }
+
+    use {
+        'sindrets/diffview.nvim',
+        requires = 'nvim-lua/plenary.nvim'
     }
 
     use {
         'tpope/vim-fugitive',
         cmd = {
-            'G', 
+            'G',
             'Git',
             'Ggrep',
             'Gdiffsplit',
             'GBrowse'
         }
+    }
+
+    use {
+        'TimUntersberger/neogit',
+        requires = 'nvim-lua/plenary.nvim'
+    }
+
+    use {
+        'norcalli/nvim-colorizer.lua',
+        config = function ()
+            require'colorizer'.setup()
+        end
     }
 
     ----------------------------------------------------------------------------------------------
