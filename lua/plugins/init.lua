@@ -16,10 +16,9 @@ return packer.startup(function(use)
     -- Appearance/User Interface
     ----------------------------------------------------------------------------------------------
     use {
-        "NvChad/nvim-base16.lua",                              -- Theme default (onedark)
-        after = "packer.nvim",
+        'folke/tokyonight.nvim',
         config = function()
-            require('theme')
+           require('plugins.configs.tokyonight')
         end
     }
 
