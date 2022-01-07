@@ -6,6 +6,8 @@ local files = {
     'shortcuts.packer',
     'shortcuts.git',
     'shortcuts.terminal',
+    'shortcuts.focus',
+    'shortcuts.diagnostic',
 }
 
 for key, file in ipairs(files) do
