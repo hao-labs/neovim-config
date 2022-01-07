@@ -122,7 +122,17 @@ return packer.startup(function(use)
         run = ':TSUpdate',                                     -- Folding, Hightlighting Syntax
         ft = file_types,
         config = function()
-            require('parser.nvim-treesitter')
+            require('plugins.configs.nvim-treesitter')
+        end
+    }
+
+    ----------------------------------------------------------------------------------------------
+    -- Terminal
+    ----------------------------------------------------------------------------------------------
+    use {
+        "akinsho/toggleterm.nvim",
+        config = function()
+            require('plugins.configs.toggleterm')
         end
     }
 
