@@ -36,8 +36,11 @@ return packer.startup(function(use)
         after = 'nvim-web-devicons',
         event = 'BufRead',
         requires = {
-            'kyazdani42/nvim-web-devicons', 
+            'kyazdani42/nvim-web-devicons',
         },
+        config = function ()
+           require('plugins.configs.lualine')
+        end
     }
 
     use {
