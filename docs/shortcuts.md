@@ -22,19 +22,28 @@
 |-|-|-|-|
 |Next Hunk|]c|:GitSigns next_hunk|Hunk it's small part of changed line|
 |Previous Hunk|[c|:GitSigns prev_hunk|-|
+|Reset Hunk to original change|[,hr|:GitSigns reset_hunk|-|
 |Add Hunk to Stage|,hs|:GitSigns stage_hunk|-|
 |Undo Staged Hunk|,hu|:GitSigns undo_stage_hunk|-|
 |Preview Diff Hunk|,hp|:GitSigns undo_stage_hunk|can be combine with next&previous hunk|
-|Git CLI command|-|-|-|
+|Git Status|,gs|:Neogit|Git status and git operation (stage, unstage, diff, commit, push, pull, etc)|
+|Current File Git History|,gh|:DiffviewFileHistory|-|
+|Open Diff Window with Active files|,gdo|:DiffviewOpen|-|
+|Close Diff Window|,gdc|:DiffviewClose|-|
+|Refresh Active files on Diff Window|,gdr|:DiffviewRefresh|-|
+
+### Github
+|Action|Shortcut|Command|Note|
+|-|-|-|-|
 
 ### Tab Navigation
 |Action|Shortcut|Command|
 |-|-|-|
 |Next Tab|]]|:BufferNext|
-|Previous Tab|a|:BufferPrevious|
+|Previous Tab|[[|:BufferPrevious|
 |Move Tab to ->|}}|:BufferMoveNext|
 |Move Tab to <-|{{|:BufferMovePrevious|
-|Close Current Tab|Ctrl+Shift+w|:BufferClose|
+|Close Current Tab|Alt+w|:BufferClose|
 
 ### Fuzzy Search(Telescope)
 |Action|Shortcut|Command|
