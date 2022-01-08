@@ -84,6 +84,11 @@ return packer.startup(function(use)
         event = 'BufRead'
     }
 
+    use {
+        "beauwilliams/focus.nvim",
+        config = function() require("focus").setup() end
+    }
+
     ----------------------------------------------------------------------------------------------
     -- Git
     ----------------------------------------------------------------------------------------------
@@ -169,6 +174,21 @@ return packer.startup(function(use)
 
     use {
         'neovim/nvim-lspconfig',                               -- define protocol between server and neovim
+    }
+
+    ----------------------------------------------------------------------------------------------
+    -- Diagnostic
+    ----------------------------------------------------------------------------------------------
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+            require("trouble").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
     }
 
     ----------------------------------------------------------------------------------------------
