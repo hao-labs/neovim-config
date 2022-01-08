@@ -59,7 +59,7 @@
 ### File Explorer(Nvim-Tree)
 |Action|Shortcut|Command|
 |-|-|-|
-|Toggle File Explorer|Ctrl+e|:NvimTreeToggle|
+|Toggle File Explorer|Ctrl+n|:NvimTreeToggle|
 |Add File or Folder|a|-|
 |Rename File|r|-|
 |Delete File|d|-|
