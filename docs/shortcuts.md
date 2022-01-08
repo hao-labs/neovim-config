@@ -1,5 +1,7 @@
 ## Keyboard Shortcuts
 
+### Leader key ( , )
+
 ### LSP (IDE)
 |Action|Shortcut|Command|Note|
 |-|-|-|-|

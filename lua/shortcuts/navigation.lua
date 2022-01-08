@@ -34,4 +34,4 @@ map {'n', '<A-9>', ':BufferGoto 9<CR>'}        -- ( Alt+9 ) Jump to tab position
 map {'n', '<A-0>', ':BufferLast<CR>'}          -- ( Alt+0 ) Jump to Last tab
 
 -- Close buffer
-map {'n', '<Ctrl-Shift-w>', ':BufferClose<CR>'}         -- ( Alt+c ) Close Tab
+map {'n', '<A-w>', ':BufferClose<CR>'}         -- ( Alt+c ) Close Tab
