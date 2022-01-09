@@ -117,6 +117,7 @@ return packer.startup(function(use)
             'G',
             'Git',
             'Ggrep',
+            'Gwrite',
             'Gdiffsplit',
             'GBrowse'
         }
@@ -251,7 +252,10 @@ return packer.startup(function(use)
     }
 
     use {
-        'glepnir/lspsaga.nvim'
+        'tami5/lspsaga.nvim',
+        config = function ()
+            require('plugins.configs.lspsaga')
+        end
     }
 
     -- use {

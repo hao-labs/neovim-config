@@ -8,6 +8,7 @@ local files = {
     'shortcuts.terminal',
     'shortcuts.focus',
     'shortcuts.diagnostic',
+    'shortcuts.lspsaga',
 }
 
 for key, file in ipairs(files) do
