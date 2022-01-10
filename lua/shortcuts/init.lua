@@ -9,6 +9,7 @@ local files = {
     'shortcuts.focus',
     'shortcuts.diagnostic',
     'shortcuts.lspsaga',
+    'shortcuts.symbols-outline',
 }
 
 for key, file in ipairs(files) do

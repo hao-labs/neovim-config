@@ -286,7 +286,6 @@ return packer.startup(function(use)
         }
     }
 
-    
     use {
         'mfussenegger/nvim-dap',
         config = function()
@@ -300,9 +299,6 @@ return packer.startup(function(use)
 
     use {
         'simrat39/symbols-outline.nvim',
-        config = function()
-            -- require("config.symbols")
-        end,
         cmd = "SymbolsOutline"
     }
 
