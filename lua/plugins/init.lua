@@ -7,7 +7,6 @@ local file_types = {    -- only running on specified file types
 }
 
 return packer.startup(function(use)
-    ----------------------------------------------------------------------------------------------
     -- Plugin Manager
     ----------------------------------------------------------------------------------------------
     use {"wbthomason/packer.nvim", event = "VimEnter"}         -- Packer can manage itself
@@ -258,6 +257,14 @@ return packer.startup(function(use)
         end
     }
 
+    use {
+        'windwp/nvim-autopairs',
+        config = function()
+            require('plugins.configs.nvim-autopairs')
+        end,
+        after = 'nvim-cmp'
+    }
+
     -- use {
     --     'hrsh7th/cmp-vsnip',
     --     after = {
@@ -278,6 +285,39 @@ return packer.startup(function(use)
             'nvim-cmp'
         }
     }
+
+    
+    use {
+        'mfussenegger/nvim-dap',
+        config = function()
+            -- require("config.dap_config")
+        end
+    }
+
+    use {
+        'rcarriga/nvim-dap-ui',
+    }
+
+    use {
+        'simrat39/symbols-outline.nvim',
+        config = function()
+            -- require("config.symbols")
+        end,
+        cmd = "SymbolsOutline"
+    }
+
+    -- vim-commentary: for quickly commenting--
+    use {
+        'tpope/vim-commentary',
+        event = "BufRead"
+    }
+
+    -- mulit cursor
+    -- use {
+    --     'mg979/vim-visual-multi',
+    --     event = "InsertEnter",
+    --     branch = 'master'
+    -- }
 
     ----------------------------------------------------------------------------------------------
     -- Performance
