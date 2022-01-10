@@ -298,14 +298,15 @@ return packer.startup(function(use)
     }
 
     use {
-        'simrat39/symbols-outline.nvim',
+        'simrat39/symbols-outline.nvim',                        -- Symbols Explorer
         cmd = "SymbolsOutline"
     }
 
-    -- vim-commentary: for quickly commenting--
     use {
-        'tpope/vim-commentary',
-        event = "BufRead"
+        'numToStr/Comment.nvim',                                -- Smart and owerful commenting plugin for neovimP
+        config = function()
+            require('plugins.configs.comment')
+        end
     }
 
     -- mulit cursor
