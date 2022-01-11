@@ -119,10 +119,8 @@ return packer.startup(function(use)
         cmd = {
             'G',
             'Git',
-            'Ggrep',
             'Gwrite',
-            'Gdiffsplit',
-            'GBrowse'
+            'GMove',
         }
     }
 
