@@ -23,10 +23,14 @@ return packer.startup(function(use)
 
     use {
         'kyazdani42/nvim-web-devicons',                        -- File Type Icons
-        event = {
-            'BufRead',
-            'WinEnter',
-        }
+    }
+
+    use {
+        "SmiteshP/nvim-gps",
+        requires = "nvim-treesitter/nvim-treesitter",
+        config = function()
+            require('plugins.configs.nvim-gps')
+        end
     }
 
     use {
@@ -145,7 +149,6 @@ return packer.startup(function(use)
     use {
         'nvim-treesitter/nvim-treesitter',                     -- Language Parser, Indentation
         run = ':TSUpdate',                                     -- Folding, Hightlighting Syntax
-        ft = file_types,
         config = function()
             require('plugins.configs.nvim-treesitter')
         end
