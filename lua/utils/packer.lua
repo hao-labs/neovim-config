@@ -6,11 +6,11 @@ local packer_not_exist = (fn.empty(fn.glob(install_path)) > 0)
 -- check if packer installed to ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 if packer_not_exist then
     no_packer = fn.system({
-        'git', 
-        'clone', 
-        '--depth', 
-        '1', 
-        'https://github.com/wbthomason/packer.nvim', 
+        'git',
+        'clone',
+        '--depth',
+        '1',
+        'https://github.com/wbthomason/packer.nvim',
         install_path
     })
 end
