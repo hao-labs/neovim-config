@@ -56,10 +56,12 @@ return packer.startup(function(use)
         'kyazdani42/nvim-tree.lua',                            -- File Explorer and Picker
         config = function()                                    -- Git File Indicator
             require('plugins.configs.nvim-tree')
+            require('utils.nvim-tree-offset').register_cmd()
         end,   -- Git File Indicator
         cmd = {
             "NvimTreeRefresh",
-            "NvimTreeToggle"
+            "NvimTreeToggle",
+            "NvimTreeToggleOffset",
         }
     }
 
