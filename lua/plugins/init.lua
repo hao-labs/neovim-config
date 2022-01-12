@@ -278,6 +278,14 @@ return packer.startup(function(use)
         after = 'nvim-cmp'
     }
 
+    use {
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+            require('plugins.configs.null-ls')
+        end,
+        requires = { "nvim-lua/plenary.nvim" },
+    }
+
     -- use {
     --     'hrsh7th/cmp-vsnip',
     --     after = {
