@@ -15,3 +15,4 @@ map {'n', '<leader>gdh', ':DiffviewFileHistory<cr>'}    -- Git Current File Hist
 map {'n', '<leader>gdo', ':DiffviewOpen<cr>'}           -- Git Open Diff Window with Active files
 map {'n', '<leader>gdc', ':DiffviewClose<cr>'}          -- Git Close Diff Window
 map {'n', '<leader>gdr', ':DiffviewRefresh<cr>'}        -- Git Refresh/Update list of active file
+map {'n', '<leader>gcom', ':TermGitCommit<cr>'}         -- Run Git Commit through terminal
