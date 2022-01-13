@@ -25,6 +25,8 @@ g.nvim_tree_show_icons = {
    git = enable_git,
 }
 
+g.nvim_tree_respect_buf_cwd = 1
+
 g.nvim_tree_icons = {
    default = "",
    symlink = "",
@@ -62,7 +64,7 @@ return require('nvim-tree').setup {
     update_cwd = true,
     update_focused_file = {
         enable = true,
-        update_cwd = false,
+        update_cwd = true,
     },
     diagnostics = {
         enable = true,
