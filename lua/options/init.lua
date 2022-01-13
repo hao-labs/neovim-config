@@ -5,6 +5,6 @@ local files = {
     'options.file',
 }
 
-for key, file in ipairs(files) do
+for _, file in ipairs(files) do
     loader(file)
 end

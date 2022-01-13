@@ -37,6 +37,6 @@ local modules = {
     'plugins',
 }
 
-for key, module_name in ipairs(modules) do
+for _, module_name in ipairs(modules) do
     loader(module_name)
 end

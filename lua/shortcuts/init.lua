@@ -13,6 +13,6 @@ local files = {
     'shortcuts.symbols-outline',
 }
 
-for key, file in ipairs(files) do
+for _, file in ipairs(files) do
     loader(file)
 end
