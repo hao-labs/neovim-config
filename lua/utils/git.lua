@@ -14,12 +14,12 @@ git.addCurrentFile = function (count)
     local term = git.term()
 
     if term then
-        print('term exec')
-        term.exec(
-            'git add ' .. vim.fn.expand('%'),
-            count,
-            12
-        )
+        term.exec({
+            cmd = 'git add ' .. vim.fn.expand('%'),
+            num = count,
+            size = 12,
+            open = 0
+        })
     end
 end
 
