@@ -9,7 +9,7 @@ local map = require('utils.map')
 -- <leader>hp                                           -- Git Preview Hunk
 -- ]c                                                   -- Go to Next hunk
 -- [c                                                   -- Go to Previous hunk
-map {'n', '<leader>gw', ':Gwrite<cr>'}                  -- Git add current file
+map {'n', '<leader>gw', ':TermGitAddCurrentFile<cr>'}                  -- Git add current file
 map {'n', '<leader>gs', ':Neogit<cr>'}                  -- Git Status with Neogit
 map {'n', '<leader>gdh', ':DiffviewFileHistory<cr>'}    -- Git Current File History
 map {'n', '<leader>gdo', ':DiffviewOpen<cr>'}           -- Git Open Diff Window with Active files
