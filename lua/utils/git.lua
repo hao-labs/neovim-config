@@ -33,7 +33,10 @@ git.commit = function (count)
         term.exec(
             'git commit',
             count,
-            12
+            12,
+            nil,    -- dir
+            nil,    -- direction
+            false   -- go_back
         )
     end
 end
