@@ -10,6 +10,7 @@ require'nvim-treesitter.configs'.setup {
     -- ensure_installed = "maintained", -- Only use parsers that are maintained
     ensure_installed = {
         'bash',
+        'fish',
         'dockerfile',
         'graphql',
         'html',
@@ -25,7 +26,7 @@ require'nvim-treesitter.configs'.setup {
     },
     sync_install = false,
 
-    highlight = { 
+    highlight = {
         enable = true, -- enable highlighting syntax
     },
     indent = {
