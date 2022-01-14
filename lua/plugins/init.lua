@@ -77,6 +77,10 @@ return packer.startup(function(use)
     }
 
     use {
+        'rcarriga/nvim-notify',
+    }
+
+    use {
         'nvim-telescope/telescope-fzf-native.nvim',            -- Additional plugins for telescope
         run = 'make'                                           -- with native fzf
     }

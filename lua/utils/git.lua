@@ -14,6 +14,7 @@ git.addCurrentFile = function (count)
     local term = git.term()
 
     if term then
+
         term.exec(
             'git add ' .. vim.fn.expand('%'),
             count,
@@ -22,6 +23,15 @@ git.addCurrentFile = function (count)
             nil,    -- direction
             true,   -- go_back
             false   -- open
+        )
+
+        local notify = require('notify')
+        notify(
+            vim.fn.expand('%'),
+            'INFO',
+            {
+                title = 'Git Add Curent File',
+            }
         )
     end
 end
