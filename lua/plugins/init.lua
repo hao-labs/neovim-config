@@ -211,7 +211,7 @@ return packer.startup(function(use)
         'williamboman/nvim-lsp-installer',                     -- to make easier to install lsP
         ft = file_types,
         config = function()
-            require('plugins.configs.lsp-installer')
+            require('plugins.lsp')
         end
     }
 
