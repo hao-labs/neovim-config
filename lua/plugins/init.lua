@@ -311,7 +311,7 @@ return packer.startup(function(use)
     use {
         "jose-elias-alvarez/null-ls.nvim",
         config = function()
-            require('plugins.configs.null-ls')
+            require('plugins.lsp.null-ls')
         end,
         requires = { "nvim-lua/plenary.nvim" },
     }
