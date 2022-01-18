@@ -3,6 +3,9 @@ require("project_nvim").setup {
         ".git",
         ".husky",
         "pnpm-lock.yaml",
+        "composer.json",
+        "docker-compose.yml",
+        "artisan",
         "node_modules",
         "package.json"
     },

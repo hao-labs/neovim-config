@@ -178,8 +178,8 @@ return packer.startup(function(use)
     -- Project
     ----------------------------------------------------------------------------------------------
     use {
-        "ahmedkhalf/project.nvim",
-        config = function()
+        "ahmedkhalf/project.nvim",                             -- Auto discovery and change directory
+        config = function()                                    -- for multiple project
             require('plugins.configs.project')
         end
     }
