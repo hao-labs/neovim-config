@@ -28,6 +28,7 @@ return packer.startup(function(use)
     use {
         "SmiteshP/nvim-gps",
         requires = "nvim-treesitter/nvim-treesitter",
+        after = 'nvim-treesitter',
         config = function()
             require('plugins.configs.nvim-gps')
         end
