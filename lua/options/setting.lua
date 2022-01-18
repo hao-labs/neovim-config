@@ -9,7 +9,7 @@ opt.swapfile = false          -- don't use swapfile/temp file
 opt.visualbell = true         -- turn on visual bell
 opt.showmatch = true          -- show matching bracket after last closing
 opt.termguicolors = true
-vim.g.mapleader = ","
+vim.g.mapleader = " "         -- set key leader to <space>
 
 -----------------------------------------------------
 -- Performance
@@ -33,6 +33,6 @@ opt.smartcase = true
 
 -- A List is an ordered sequence of items.
 opt.list = true               -- show indentation
-opt.listchars = 
-    "tab:-->,trail:·"         -- list of characters 
+opt.listchars =
+    "tab:-->,trail:·"         -- list of characters
 opt.scrolloff = 5             -- Minimal number of screen lines to keep above and below the cursor.
