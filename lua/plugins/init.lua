@@ -239,6 +239,13 @@ return packer.startup(function(use)
     -- Auto Completion
     ----------------------------------------------------------------------------------------------
     use {
+        "folke/which-key.nvim",
+        config = function()
+            require ('plugins.which-key')
+        end
+    }
+
+    use {
         'rafamadriz/friendly-snippets',
         event = "InsertEnter"
     }
