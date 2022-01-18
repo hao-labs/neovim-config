@@ -49,7 +49,7 @@ g.nvim_tree_icons = {
    },
 }
 
-return require('nvim-tree').setup {
+require('nvim-tree').setup {
     filters = {
         dotfiles = false,
     },
@@ -80,3 +80,5 @@ return require('nvim-tree').setup {
         ignore = false,
     },
 }
+
+require('utils.nvim-tree-offset').register_cmd()

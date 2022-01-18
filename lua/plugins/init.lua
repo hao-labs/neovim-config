@@ -17,7 +17,7 @@ return packer.startup(function(use)
     use {
         'folke/tokyonight.nvim',
         config = function()
-           require('plugins.configs.tokyonight')
+           require('plugins.tokyonight')
         end
     }
 
@@ -30,7 +30,7 @@ return packer.startup(function(use)
         requires = "nvim-treesitter/nvim-treesitter",
         after = 'nvim-treesitter',
         config = function()
-            require('plugins.configs.nvim-gps')
+            require('plugins.nvim-gps')
         end
     }
 
@@ -42,7 +42,7 @@ return packer.startup(function(use)
             'kyazdani42/nvim-web-devicons',
         },
         config = function ()
-           require('plugins.configs.lualine')
+           require('plugins.lualine')
         end
     }
 
@@ -56,8 +56,7 @@ return packer.startup(function(use)
     use {
         'kyazdani42/nvim-tree.lua',                            -- File Explorer and Picker
         config = function()                                    -- Git File Indicator
-            require('plugins.configs.nvim-tree')
-            require('utils.nvim-tree-offset').register_cmd()
+            require('plugins.nvim-tree')
         end,   -- Git File Indicator
         cmd = {
             "NvimTreeRefresh",
@@ -73,7 +72,7 @@ return packer.startup(function(use)
             'nvim-lua/plenary.nvim'
         },
         config = function()
-            require('plugins.configs.telescope')
+            require('plugins.telescope')
         end
     }
 
@@ -89,14 +88,16 @@ return packer.startup(function(use)
     use {
         'lukas-reineke/indent-blankline.nvim',
         config = function()
-            require('plugins.configs.indent-blankline')
+            require('plugins.indent-blankline')
         end,
         event = 'BufRead'
     }
 
     use {
         "beauwilliams/focus.nvim",
-        config = function() require("focus").setup() end
+        config = function()
+            require('plugins.focus')
+        end
     }
 
     ----------------------------------------------------------------------------------------------
@@ -112,7 +113,7 @@ return packer.startup(function(use)
             "BufWritePost"
         },
         config = function()
-            require ('gitsigns').setup()
+            require('plugins.gitsigns')
         end
     }
 
@@ -141,14 +142,14 @@ return packer.startup(function(use)
             'Neogit'
         },
         config = function()
-            require('plugins.configs.neogit')
+            require('plugins.neogit')
         end
     }
 
     use {
         'norcalli/nvim-colorizer.lua',
         config = function ()
-            require'colorizer'.setup()
+            require('plugins.nvim-colorizer')
         end
     }
 
@@ -170,7 +171,7 @@ return packer.startup(function(use)
     use {
         'cappyzawa/trim.nvim',                                 -- Auto trims trailing whitespace and lines.
         config = function()
-            require('plugins.configs.trim-nvim')
+            require('plugins.trim-nvim')
         end
     }
 
@@ -180,7 +181,7 @@ return packer.startup(function(use)
     use {
         "ahmedkhalf/project.nvim",                             -- Auto discovery and change directory
         config = function()                                    -- for multiple project
-            require('plugins.configs.project')
+            require('plugins.project')
         end
     }
 
@@ -191,7 +192,7 @@ return packer.startup(function(use)
         'nvim-treesitter/nvim-treesitter',                     -- Language Parser, Indentation
         run = ':TSUpdate',                                     -- Folding, Hightlighting Syntax
         config = function()
-            require('plugins.configs.nvim-treesitter')
+            require('plugins.nvim-treesitter')
         end
     }
 
@@ -201,7 +202,7 @@ return packer.startup(function(use)
     use {
         "akinsho/toggleterm.nvim",
         config = function()
-            require('plugins.configs.toggleterm')
+            require('plugins.toggleterm')
         end
     }
 
@@ -227,11 +228,7 @@ return packer.startup(function(use)
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
         config = function()
-            require("trouble").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
+            require('plugins.trouble')
         end
     }
 
@@ -241,7 +238,7 @@ return packer.startup(function(use)
     use {
         "folke/which-key.nvim",
         config = function()
-            require ('plugins.which-key')
+            require('plugins.which-key')
         end
     }
 
@@ -255,7 +252,7 @@ return packer.startup(function(use)
         wants = "friendly-snippets",
         after = "nvim-cmp",
         config = function()
-            require ('plugins.configs.luasnip')
+            require('plugins.luasnip')
         end
     }
 
@@ -263,7 +260,7 @@ return packer.startup(function(use)
         'hrsh7th/nvim-cmp',
         after = "friendly-snippets",
         config = function()
-            require("plugins.configs.cmp")
+            require('plugins.cmp')
         end,
         requires = {
             'onsails/lspkind-nvim'
@@ -304,14 +301,14 @@ return packer.startup(function(use)
     use {
         'tami5/lspsaga.nvim',
         config = function ()
-            require('plugins.configs.lspsaga')
+            require('plugins.lsp.saga')
         end
     }
 
     use {
         'windwp/nvim-autopairs',
         config = function()
-            require('plugins.configs.nvim-autopairs')
+            require('plugins.nvim-autopairs')
         end,
         after = 'nvim-cmp'
     }
@@ -364,7 +361,7 @@ return packer.startup(function(use)
     use {
         'numToStr/Comment.nvim',                                -- Smart and owerful commenting plugin for neovimP
         config = function()
-            require('plugins.configs.comment')
+            require('plugins.comment')
         end
     }
 
