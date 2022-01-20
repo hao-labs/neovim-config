@@ -1,18 +1,76 @@
-local map = require('utils.map')
+local key = require("which-key").register
 
 -------------------------------------------------------------------
 -- Normal Mode Key Bindings
 -------------------------------------------------------------------
--- <leader>hb                                           -- Git Blame current line
--- <leader>hs                                           -- Git Stage hunk
--- <leader>hs                                           -- Git Undo Stage hunk
--- <leader>hp                                           -- Git Preview Hunk
--- ]c                                                   -- Go to Next hunk
--- [c                                                   -- Go to Previous hunk
-map {'n', '<leader>gw', ':TermGitAddCurrentFile<cr>'}                  -- Git add current file
-map {'n', '<leader>gs', ':Neogit<cr>'}                  -- Git Status with Neogit
-map {'n', '<leader>gdh', ':DiffviewFileHistory<cr>'}    -- Git Current File History
-map {'n', '<leader>gdo', ':DiffviewOpen<cr>'}           -- Git Open Diff Window with Active files
-map {'n', '<leader>gdc', ':DiffviewClose<cr>'}          -- Git Close Diff Window
-map {'n', '<leader>gdr', ':DiffviewRefresh<cr>'}        -- Git Refresh/Update list of active file
-map {'n', '<leader>gcom', ':TermGitCommit<cr>'}         -- Run Git Commit through terminal
+key({
+    [']'] = {
+        name = 'Go to(Next)',
+        c = 'Next Git Hunk',
+    },
+    ['['] = {
+        name = 'Go to(Previous)',
+        c = 'Previous Git Hunk',
+    },
+    ['<leader>h'] = {
+        name = 'Git Hunk',
+        b = 'Blame Current Line',
+        s = 'Stage Current Hunk',
+        u = 'Undo Stage Current Hunk',
+        r = 'Reset Current Hunk',
+        p = 'Preview Current Hunk',
+    },
+    ['<leader>g'] = {
+        name = 'Git',
+        a = {                                   -- ( <leader>ga ) Git add current file
+            "<cmd>TermGitAddCurrentFile<cr>",
+            "Add Current File (terminal)"
+        },
+        s =  {                                  -- ( <leader>gs ) Git status of active files
+            "<cmd>Telescope git_status<cr>",
+            "Current status"
+        },
+        n = {                                   -- ( <leader>gn ) Open Neogit to manage git
+            "<cmd>Neogit<cr>",
+            "Open Neogit(Manage Git Files)"
+        },
+        c = {                                   -- ( <leader>gc ) Git commit staged file
+            "<cmd>TermGitCommit<cr>",
+            "Commit Staged Files (terminal)"
+        },
+        h = {                                   -- ( <leader>gh ) Git Commit History
+            "<cmd>DiffviewFileHistory<cr>",
+            "Commit History (terminal)"
+        },
+    },
+    ['<leader>d'] = {
+        name = 'Git Diff View',
+        o = {                                   -- ( <leader>gdo ) Open Diff View
+            "<cmd>DiffviewOpen<cr>",
+            "Open Diff View"
+        },
+        c = {                                   -- ( <leader>gdc ) Open Diff View
+            "<cmd>DiffviewClose<cr>",
+            "Close Diff View"
+        },
+        r = {                                   -- ( <leader>gdr ) Refresh Diff View
+            "<cmd>DiffviewRefresh<cr>",
+            "Refresh Diff View"
+        },
+    },
+    ['<leader>f'] = {
+        name = 'Find(Telescope)',
+        l = {                                   -- ( <leader>fl ) Git log all files
+            "<cmd>Telescope git_commits<cr>",
+            "Commit Log All Files"
+        },
+        c = {                                   -- ( <leader>fc ) Git log current file
+            "<cmd>Telescope git_bcommits<cr>",
+            "Commit Log Current File/Commit History"
+        },
+        b = {                                   -- ( <leader>fb ) Switch branch
+            "<cmd>Telescope git_branches<cr>",
+            "Switch Branch"
+        }
+    }
+}, { mode = 'n' })

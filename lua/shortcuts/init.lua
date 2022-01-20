@@ -9,8 +9,6 @@ local files = {
     'shortcuts.terminal',
     'shortcuts.focus',
     'shortcuts.diagnostic',
-    'shortcuts.lspsaga',
-    'shortcuts.symbols-outline',
 }
 
 for _, file in ipairs(files) do

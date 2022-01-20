@@ -20,7 +20,6 @@ opt.lazyredraw = true         -- faster scrolling
 opt.synmaxcol = 240           -- max column for syntax hightlight
 opt.ttimeoutlen = 0           -- in miliseconds
 opt.timeoutlen = 200          -- faster delay of waiting key combination when user typing
-opt.timeout = false           -- no waiting for key combination
 
 -----------------------------------------------------
 -- Line Number

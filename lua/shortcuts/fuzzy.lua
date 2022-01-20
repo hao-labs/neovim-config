@@ -1,4 +1,4 @@
-local map = require('utils.map')
+local key = require("which-key").register
 
 -------------------------------------------------------------------
 -- Normal Mode Key Bindings
@@ -7,9 +7,32 @@ local map = require('utils.map')
 -------------------------------------------------------------------
 -- Find Files, Grep, Active Tab and Help config
 -------------------------------------------------------------------
-map {'n', '<C-p>', ':Telescope find_files<cr>'} -- ( Ctrl+p ) Find files
-map {'n', 'fif', ':Telescope live_grep<cr>'}    -- ( fif ) Find grep in files
-map {'n', 'ft', ':Telescope buffers<cr>'}       -- ( ft ) Find active tab
-map {'n', 'fh', ':Telescope help_tags<cr>'}     -- ( fh ) Find help
-map {'n', 'gs', ':Telescope git_status<cr>'}    -- ( gs ) Git status of active files
-map {'n', '<leader>pr', ':Telescope projects<cr>'}      -- ( pr ) Explore available projects
+key({
+    ['<C-p>'] = {                               -- ( Ctrl+p ) Find/Open Files
+        "<cmd>Telescope find_files<cr>",
+        "Find/Open Files"
+    },
+    ['<leader>f'] = {
+        name = 'Find(Telescope)',
+        f = {                                   -- ( <leader>ff ) Find/Open Files
+            "<cmd>Telescope find_files<cr>",
+            "Find/Open Files"
+        },
+        t = {                                   -- ( <leader>ft ) Find Active Tab
+            "<cmd>Telescope buffers<cr>",
+            "Find Active Tab/Buffer"
+        },
+        g = {                                   -- ( <leader>fg ) Find text in files
+            "<cmd>Telescope live_grep<cr>",
+            "Find Text in Files/Grep"
+        },
+        h = {                                   -- ( <leader>fh ) Find help Documentation
+            "<cmd>Telescope help_tags<cr>",
+            "Find Help Documentation"
+        },
+        p = {                                   -- ( <leader>fp ) Open Available Project
+            "<cmd>Telescope projects<cr>",
+            "Open Available Projects"
+        }
+    },
+}, { mode = 'n' })

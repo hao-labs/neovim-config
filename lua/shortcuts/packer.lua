@@ -1,9 +1,26 @@
-local map = require('utils.map')
+local key = require("which-key").register
 
 -------------------------------------------------------------------
 -- Normal Mode Key Bindings
 -------------------------------------------------------------------
-map {'n', '<leader>ps', ':PackerStatus<cr>'}        -- Check Status of Installed Plugins
-map {'n', '<leader>psy', ':PackerSync<cr>'}         -- Update/Install and Compile Installed Plugins
-map {'n', '<leader>pp', ':PackerProfile<cr>'}       -- Check packer profiler for performance
-map {'n', '<leader>pc', ':PackerCompile<cr>'}       -- Compile Installed Plugins
+key({
+    ['<leader>p'] = {
+        name = 'Packer',
+        s = {
+            "<cmd>PackerStatus<cr>",
+            "Check Status Installed Plugins"
+        },
+        u = {
+            "<cmd>PackerSync<cr>",
+            "Update/Install and Compile Plugins"
+        },
+        p = {
+            "<cmd>PackerProfile<cr>",
+            "Open profiler for performance"
+        },
+        c = {
+            "<cmd>PackerCompile<cr>",
+            "Compile Installed Plugins"
+        },
+    }
+}, { mode = 'n' })

@@ -1,4 +1,4 @@
-local map = require('utils.map')
+local key = require("which-key").register
 
 -- you can toggle multiple session of terminal just by adding number before Ctr-\
 -- ( 1+Ctrl+\ ) Toggle Terminal Session 1
@@ -6,4 +6,17 @@ local map = require('utils.map')
 -------------------------------------------------------------------
 -- Normal Mode Key Bindings
 -------------------------------------------------------------------
-map {'n', 'tt', ':ToggleTermToggleAll<cr>'}                       -- Toggle All terminal session
+key({
+    ['<leader>t'] = {
+        name = 'Terminal',
+        a = {                                   -- ( <leader>ta ) Toggle All Terminal
+            '<cmd>ToggleTermToggleAll<cr>',
+            'Toggle All Terminal'
+        },
+        t = {                                   -- ( <leader>tt ) Toggle Terminal
+            '<C-\\>',
+            'Toggle Terminal'
+        },
+    },
+    ['<C-\\>'] = 'Toggle Terminal',             -- ( Ctrl+\ ) Toggle Terminal
+}, { mode = 'n' })
