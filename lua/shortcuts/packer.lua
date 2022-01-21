@@ -5,7 +5,7 @@ local key = require("which-key").register
 -------------------------------------------------------------------
 key({
     ['<leader>p'] = {
-        name = 'Packer',
+        name = 'Plugins(Packer)',
         s = {
             "<cmd>PackerStatus<cr>",
             "Check Status Installed Plugins"

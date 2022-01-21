@@ -11,6 +11,10 @@ key({
     ['<leader>'] = 'Tools',
     s = 'Jump To Next(Motion)',
     S = 'Jump To Previous(Motion)',
+    ['?'] = {                           -- ( ? ) get all keyboard shortcuts
+        "<cmd>WhichKey<cr>",
+        'Esc'
+    },
 }, { mode = 'n' })
 
 -------------------------------------------------------------------
