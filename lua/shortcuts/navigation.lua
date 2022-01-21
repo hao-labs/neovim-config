@@ -8,19 +8,19 @@ local key = require("which-key").register
 -- Split Window Navigation
 -------------------------------------------------------------------
 key({
-    ['<C-h'] = {                            -- ( ctrl+h ) jump left window
+    ['<C-h>'] = {                            -- ( ctrl+h ) jump left window
         '<C-w>h',
         'Jump Left Window'
     },
-    ['<C-l'] = {                            -- ( ctrl+l ) jump right window
+    ['<C-l>'] = {                            -- ( ctrl+l ) jump right window
         '<C-w>l',
         'Jump Right Window'
     },
-    ['<C-j'] = {                            -- ( ctrl+j ) jump down window
+    ['<C-j>'] = {                            -- ( ctrl+j ) jump down window
         '<C-w>j',
         'Jump Down Window'
     },
-    ['<C-k'] = {                            -- ( ctrl+k ) jump top window
+    ['<C-k>'] = {                            -- ( ctrl+k ) jump top window
         '<C-w>k',
         'Jump Top Window'
     },
