@@ -4,6 +4,7 @@ local file_types = {    -- only running on specified file types
     'javascript',
     'html',
     'json',
+    'php',
 }
 
 return packer.startup(function(use)
