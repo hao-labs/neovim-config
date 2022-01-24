@@ -22,9 +22,13 @@ key({
             "<cmd>Telescope buffers<cr>",
             "Find Active Tab/Buffer"
         },
-        g = {                                   -- ( <leader>fg ) Find text in files
+        w = {                                   -- ( <leader>fg ) Find text in files
             "<cmd>Telescope live_grep<cr>",
-            "Find Text in Files/Grep"
+            "Find Word in Files/Grep"
+        },
+        r = {                                   -- ( <leader>fr ) Find recent files
+            "<cmd>Telescope oldfiles<cr>",
+            "Find Recent files"
         },
         h = {                                   -- ( <leader>fh ) Find help Documentation
             "<cmd>Telescope help_tags<cr>",
