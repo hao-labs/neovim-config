@@ -29,7 +29,7 @@ g.dashboard_custom_section = {
     },
     g = {
         description = { "  Keyboard Shortcuts        ?      " },
-        command = "SessionLoad"
+        command = "WhichKey"
     },
 }
 
@@ -50,3 +50,8 @@ g.dashboard_custom_header = {
     '⠀⠀⠀⠐⢤⣀⣀⢀⣀⣠⣴⣿⣿⠿⠋⠙⠿⣿⣿⣦⣄⣀⠀⠀⣀⡠⠂⠀⠀⠀ ',
     '⠀⠀⠀⠀⠀⠈⠉⠛⠛⠛⠛⠉⠀⠀⠀⠀⠀⠈⠉⠛⠛⠛⠛⠋⠁⠀⠀⠀⠀⠀ ',
 }
+
+vim.cmd [[
+    autocmd FileType dashboard set showtabline=0 laststatus=0
+    autocmd WinLeave <buffer> set showtabline=2 laststatus=2
+]]
