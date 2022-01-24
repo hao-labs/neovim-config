@@ -101,6 +101,13 @@ return packer.startup(function(use)
         end
     }
 
+    use {
+        'glepnir/dashboard-nvim',
+        config = function ()
+           require('plugins.dashboard-nvim')
+        end
+    }
+
     ----------------------------------------------------------------------------------------------
     -- Git
     ----------------------------------------------------------------------------------------------
