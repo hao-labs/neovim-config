@@ -2,6 +2,8 @@
 rm -rf plugin/packer_compiled.lua
 # remove installed plugins
 rm -rf ~/.local/share/nvim/*
+# remove undo file
+rm -rf ~/.share/nvim/undo/*
 
 # Clean up lsp log
 cat /dev/null > ~/.cache/nvim/lsp.log
