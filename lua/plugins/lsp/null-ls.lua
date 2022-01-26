@@ -12,12 +12,12 @@ local sources = {
             'NeogitCommitMessage',
         }
     }),
-    null_ls.builtins.diagnostics.vale.with({
-        extra_filetypes = {
-            'gitcommit',
-            'NeogitCommitMessage',
-        }
-    }),
+    -- null_ls.builtins.diagnostics.vale.with({
+    --     extra_filetypes = {
+    --         'gitcommit',
+    --         'NeogitCommitMessage',
+    --     }
+    -- }),
     null_ls.builtins.diagnostics.gitlint.with({
         extra_filetypes = {
             'NeogitCommitMessage',
