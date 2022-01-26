@@ -9,7 +9,7 @@ installer.addServers({
     'html',
     'intelephense',
     'rust_analyzer',
-    'tailwindcss',
+    -- 'tailwindcss',
     'yamlls',
 })
 
