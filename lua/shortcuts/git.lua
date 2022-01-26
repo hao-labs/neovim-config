@@ -6,19 +6,40 @@ local key = require("which-key").register
 key({
     [']'] = {
         name = 'Go to(Next)',
-        c = 'Next Git Hunk',
+        c = {
+            '<cmd>Gitsigns next_hunk<cr>',
+            'Next Git Hunk'
+        },
     },
     ['['] = {
         name = 'Go to(Previous)',
-        c = 'Previous Git Hunk',
+        c = {
+            '<cmd>Gitsigns prev_hunk<cr>',
+            'Previous Git Hunk'
+        },
     },
     ['<leader>h'] = {
         name = 'Git Hunk',
-        b = 'Blame Current Line',
-        s = 'Stage Current Hunk',
-        u = 'Undo Stage Current Hunk',
-        r = 'Reset Current Hunk',
-        p = 'Preview Current Hunk',
+        b = {
+            '<cmd>Gitsigns blame_line<cr>',
+            'Blame Current Line'
+        },
+        s = {
+            '<cmd>Gitsigns stage_hunk<cr>',
+            'Stage Current Hunk'
+        },
+        u = {
+            '<cmd>Gitsigns undo_stage_hunk<cr>',
+            'Undo Stage Current Hunk'
+        },
+        r = {
+            '<cmd>Gitsigns reset_hunk<cr>',
+            'Reset Current Hunk'
+        },
+        p = {
+            '<cmd>Gitsigns preview_hunk<cr>',
+            'Preview Current Hunk'
+        },
     },
     ['<leader>g'] = {
         name = 'Git',
