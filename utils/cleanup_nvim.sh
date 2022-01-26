@@ -23,3 +23,5 @@ cat /dev/null > ~/.cache/nvim/diffview.log
 
 # Clean up telescope.log
 cat /dev/null > ~/.cache/nvim/telescope.log
+# Clean up null-ls.log
+cat /dev/null > ~/.cache/nvim/null-ls.log
