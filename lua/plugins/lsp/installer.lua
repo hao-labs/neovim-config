@@ -14,7 +14,11 @@ end
 
 function utils.getCapabilities()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+    if package.loaded["cmp_nvim_lsp"] then
+        capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+    end
+
     return capabilities
 end
 
