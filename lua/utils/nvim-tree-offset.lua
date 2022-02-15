@@ -1,61 +1,62 @@
 local tree = {}
 
 tree.view = function ()
-    local view_status_ok, view = pcall(require, "nvim-tree.view")
+  local view_status_ok, view = pcall(require, "nvim-tree.view")
 
-    if not view_status_ok then
-        return false
-    end
+  if not view_status_ok then
+    return false
+  end
 
-    return view
+  return view
+end
+
+tree.base = function ()
+  local tree_status_ok, base = pcall(require, "nvim-tree")
+
+  if not tree_status_ok then
+    return false
+  end
+
+  return base
 end
 
 tree.state = function ()
-    if package.loaded["bufferline.state"] then
-        return require("bufferline.state")
-    end
+  if package.loaded["bufferline.state"] then
+    return require("bufferline.state")
+  end
 
-    return false
+  return false
 end
 
-tree.open = function()
-    local view = tree.view()
+tree.toggleOffset = function (isOpen)
+  local state = tree.state()
 
-    if vim.g.nvim_tree_follow == 1 then
-        require("nvim-tree").find_file(true)
-    end
-
-    if view and not view.win_open() then
-        local state = tree.state()
-
-        if state then
-            state.set_offset(31, "File Explorer")
-        end
-
-        require("nvim-tree.lib").open()
-    end
+  if state and isOpen then
+    state.set_offset(31, "File Explorer")
+  else
+    -- Offset the bufferline
+    state.set_offset(0)
+  end
 end
 
-tree.close = function ()
-    local state = tree.state()
+tree.toggleView = function (view)
+  local base = tree.base()
 
-    if state then
-        -- Offset the bufferline
-       state.set_offset(0)
-    end
+  if view.is_visible() then
+    view.close()
+  elseif base then
+    base.open()
+  end
 
-    -- Close NvimTree
-    require("nvim-tree").close()
+  tree.toggleOffset(view.is_visible())
 end
 
 tree.toggle = function()
-    local view = tree.view()
+  local view = tree.view()
 
-    if view and view.win_open() then
-        tree.close()
-    else
-        tree.open()
-    end
+  if view then
+    tree.toggleView(view)
+  end
 end
 
 -- register command NvimTreeToggleOffset
