@@ -58,7 +58,7 @@ return packer.startup(function(use)
         'kyazdani42/nvim-tree.lua',                            -- File Explorer and Picker
         config = function()                                    -- Git File Indicator
             require('plugins.nvim-tree')
-        end,   -- Git File Indicator
+        end,
         cmd = {
             "NvimTreeRefresh",
             "NvimTreeToggle",
@@ -105,6 +105,13 @@ return packer.startup(function(use)
         'glepnir/dashboard-nvim',
         config = function ()
            require('plugins.dashboard-nvim')
+        end
+    }
+
+    use {
+        'norcalli/nvim-colorizer.lua',
+        config = function ()
+            require('plugins.nvim-colorizer')
         end
     }
 
