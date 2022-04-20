@@ -32,7 +32,7 @@ tree.toggleOffset = function (isOpen)
   local state = tree.state()
 
   if state and isOpen then
-    state.set_offset(31, "File Explorer")
+    state.set_offset(25, "File Explorer")
   else
     -- Offset the bufferline
     state.set_offset(0)
