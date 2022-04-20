@@ -1,16 +1,17 @@
 local packer = require('utils.packer')
-local file_types = {    -- only running on specified file types
-    'lua',
-    'javascript',
-    'html',
-    'json',
-    'php',
+local file_types = { -- only running on specified file types
+                     'lua',
+                     'javascript',
+                     'javascriptreact',
+                     'html',
+                     'json',
+                     'php',
 }
 
 return packer.startup(function(use)
     -- Plugin Manager
     ----------------------------------------------------------------------------------------------
-    use {"wbthomason/packer.nvim", event = "VimEnter"}         -- Packer can manage itself
+    use { "wbthomason/packer.nvim", event = "VimEnter" } -- Packer can manage itself
 
     ----------------------------------------------------------------------------------------------
     -- Appearance/User Interface
@@ -18,12 +19,12 @@ return packer.startup(function(use)
     use {
         'folke/tokyonight.nvim',
         config = function()
-           require('plugins.tokyonight')
+            require('plugins.tokyonight')
         end
     }
 
     use {
-        'kyazdani42/nvim-web-devicons',                        -- File Type Icons
+        'kyazdani42/nvim-web-devicons', -- File Type Icons
     }
 
     use {
@@ -36,27 +37,27 @@ return packer.startup(function(use)
     }
 
     use {
-        'nvim-lualine/lualine.nvim',                           -- Status Line
+        'nvim-lualine/lualine.nvim', -- Status Line
         after = 'nvim-web-devicons',
         event = 'BufRead',
         requires = {
             'kyazdani42/nvim-web-devicons',
         },
-        config = function ()
-           require('plugins.lualine')
+        config = function()
+            require('plugins.lualine')
         end
     }
 
     use {
-        'romgrk/barbar.nvim',                                  -- Tab Management
+        'romgrk/barbar.nvim', -- Tab Management
         after = 'nvim-web-devicons',
         event = 'BufRead',
-        requires = {'kyazdani42/nvim-web-devicons'}
+        requires = { 'kyazdani42/nvim-web-devicons' }
     }
 
     use {
-        'kyazdani42/nvim-tree.lua',                            -- File Explorer and Picker
-        config = function()                                    -- Git File Indicator
+        'kyazdani42/nvim-tree.lua', -- File Explorer and Picker
+        config = function() -- Git File Indicator
             require('plugins.nvim-tree')
         end,
         cmd = {
@@ -67,10 +68,10 @@ return packer.startup(function(use)
     }
 
     use {
-        'nvim-telescope/telescope.nvim',                       -- Fuzzy Search for file, git, help
-        requires = {                                           -- extensible to other fuzzy process
-            'nvim-lua/popup.nvim',
-            'nvim-lua/plenary.nvim'
+        'nvim-telescope/telescope.nvim', -- Fuzzy Search for file, git, help
+        requires = { -- extensible to other fuzzy process
+                     'nvim-lua/popup.nvim',
+                     'nvim-lua/plenary.nvim'
         },
         config = function()
             require('plugins.telescope')
@@ -82,8 +83,8 @@ return packer.startup(function(use)
     }
 
     use {
-        'nvim-telescope/telescope-fzf-native.nvim',            -- Additional plugins for telescope
-        run = 'make'                                           -- with native fzf
+        'nvim-telescope/telescope-fzf-native.nvim', -- Additional plugins for telescope
+        run = 'make' -- with native fzf
     }
 
     use {
@@ -103,14 +104,14 @@ return packer.startup(function(use)
 
     use {
         'glepnir/dashboard-nvim',
-        config = function ()
-           require('plugins.dashboard-nvim')
+        config = function()
+            require('plugins.dashboard-nvim')
         end
     }
 
     use {
         'norcalli/nvim-colorizer.lua',
-        config = function ()
+        config = function()
             require('plugins.nvim-colorizer')
         end
     }
@@ -119,9 +120,9 @@ return packer.startup(function(use)
     -- Git
     ----------------------------------------------------------------------------------------------
     use {
-        'lewis6991/gitsigns.nvim',                             -- Signs for added, removed, and changed lines
-        requires = {                                           -- Hunk Integration (jump, add to stage, dll)
-            'nvim-lua/plenary.nvim'                            -- Git Blame and preview
+        'lewis6991/gitsigns.nvim', -- Signs for added, removed, and changed lines
+        requires = { -- Hunk Integration (jump, add to stage, dll)
+                     'nvim-lua/plenary.nvim' -- Git Blame and preview
         },
         event = {
             "BufRead",
@@ -162,16 +163,21 @@ return packer.startup(function(use)
     }
 
     use {
-        'norcalli/nvim-colorizer.lua',
-        config = function ()
-            require('plugins.nvim-colorizer')
+        'pwntester/octo.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope.nvim',
+            'kyazdani42/nvim-web-devicons',
+        },
+        config = function()
+            require "octo".setup()
         end
     }
 
     ----------------------------------------------------------------------------------------------
     -- Motion
     ----------------------------------------------------------------------------------------------
-    use {'ggandor/lightspeed.nvim'}
+    use { 'ggandor/lightspeed.nvim' }
 
     ----------------------------------------------------------------------------------------------
     -- Time Tracking
@@ -184,7 +190,7 @@ return packer.startup(function(use)
     -- Formatter
     ----------------------------------------------------------------------------------------------
     use {
-        'cappyzawa/trim.nvim',                                 -- Auto trims trailing whitespace and lines.
+        'cappyzawa/trim.nvim', -- Auto trims trailing whitespace and lines.
         config = function()
             require('plugins.trim-nvim')
         end
@@ -194,8 +200,8 @@ return packer.startup(function(use)
     -- Project
     ----------------------------------------------------------------------------------------------
     use {
-        "ahmedkhalf/project.nvim",                             -- Auto discovery and change directory
-        config = function()                                    -- for multiple project
+        "ahmedkhalf/project.nvim", -- Auto discovery and change directory
+        config = function() -- for multiple project
             require('plugins.project')
         end
     }
@@ -204,8 +210,8 @@ return packer.startup(function(use)
     -- Languange Parser
     ----------------------------------------------------------------------------------------------
     use {
-        'nvim-treesitter/nvim-treesitter',                     -- Language Parser, Indentation
-        run = ':TSUpdate',                                     -- Folding, Hightlighting Syntax
+        'nvim-treesitter/nvim-treesitter', -- Language Parser, Indentation
+        run = ':TSUpdate', -- Folding, Hightlighting Syntax
         config = function()
             require('plugins.nvim-treesitter')
         end
@@ -225,7 +231,7 @@ return packer.startup(function(use)
     -- Language Server Protocol (LSP)
     ----------------------------------------------------------------------------------------------
     use {
-        'williamboman/nvim-lsp-installer',                     -- to make easier to install lsP
+        'williamboman/nvim-lsp-installer', -- to make easier to install lsP
         ft = file_types,
         config = function()
             require('plugins.lsp')
@@ -233,7 +239,7 @@ return packer.startup(function(use)
     }
 
     use {
-        'neovim/nvim-lspconfig',                               -- define protocol between server and neovim
+        'neovim/nvim-lspconfig', -- define protocol between server and neovim
     }
 
     ----------------------------------------------------------------------------------------------
@@ -315,7 +321,7 @@ return packer.startup(function(use)
 
     use {
         'tami5/lspsaga.nvim',
-        config = function ()
+        config = function()
             require('plugins.lsp.saga')
         end
     }
@@ -369,12 +375,12 @@ return packer.startup(function(use)
     }
 
     use {
-        'simrat39/symbols-outline.nvim',                        -- Symbols Explorer
+        'simrat39/symbols-outline.nvim', -- Symbols Explorer
         cmd = "SymbolsOutline"
     }
 
     use {
-        'numToStr/Comment.nvim',                                -- Smart and owerful commenting plugin for neovimP
+        'numToStr/Comment.nvim', -- Smart and owerful commenting plugin for neovimP
         config = function()
             require('plugins.comment')
         end
@@ -391,7 +397,7 @@ return packer.startup(function(use)
     -- Performance
     ----------------------------------------------------------------------------------------------
     use {
-        "nathom/filetype.nvim",                                -- Improve loading filetype performance
+        "nathom/filetype.nvim", -- Improve loading filetype performance
     }
 
     -- Automatically set up your configuration after cloning packer.nvim

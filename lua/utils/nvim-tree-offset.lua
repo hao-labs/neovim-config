@@ -1,6 +1,6 @@
 local tree = {}
 
-tree.view = function ()
+tree.view = function()
   local view_status_ok, view = pcall(require, "nvim-tree.view")
 
   if not view_status_ok then
@@ -10,7 +10,7 @@ tree.view = function ()
   return view
 end
 
-tree.base = function ()
+tree.base = function()
   local tree_status_ok, base = pcall(require, "nvim-tree")
 
   if not tree_status_ok then
@@ -20,7 +20,7 @@ tree.base = function ()
   return base
 end
 
-tree.state = function ()
+tree.state = function()
   if package.loaded["bufferline.state"] then
     return require("bufferline.state")
   end
@@ -28,7 +28,7 @@ tree.state = function ()
   return false
 end
 
-tree.toggleOffset = function (isOpen)
+tree.toggleOffset = function(isOpen)
   local state = tree.state()
 
   if state and isOpen then
@@ -39,7 +39,7 @@ tree.toggleOffset = function (isOpen)
   end
 end
 
-tree.toggleView = function (view)
+tree.toggleView = function(view)
   local base = tree.base()
 
   if view.is_visible() then
@@ -61,8 +61,8 @@ end
 
 -- register command NvimTreeToggleOffset
 -- so we can
-tree.register_cmd = function ()
-    vim.cmd [[
+tree.register_cmd = function()
+  vim.cmd [[
         command! NvimTreeToggleOffset lua require'utils.nvim-tree-offset'.toggle()
     ]]
 end
